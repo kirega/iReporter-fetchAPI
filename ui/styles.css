@@ -229,6 +229,9 @@ FORM STYLES
 ***********************
 /
 /* @import 'css/forms.css'; */
+.signup #errors {
+    color: #fb7371;
+}
 
 .form-wrapper.signup {
     width: 70%;
