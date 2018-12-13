@@ -25,7 +25,7 @@
     <div class="section">
         <div class="container">
             <div class="form-wrapper">
-                <form action='./dashboard.html' class="entry-form">
+                <form action='./dashboard.html' class="entry-form" id="login">
 
                     <h2 class="form-title">
                         <a href='./index.html'>iReporter</a>
@@ -34,7 +34,6 @@
                     <h3 class="form-subtitle">Log In</h3>
                     <hr>
                     <div class='form-group'>
-
                         <input type="text" name="username" placeholder="Username">
                     </div>
 
@@ -43,9 +42,11 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="form-button">Log In</button>
+                        <button type="submit" class="form-button" onclick="login()">Log In</button>
                     </div>
-
+                    <div class="form-group">
+                        <span id="errors"></span>
+                    </div>
                     <div class="form-footer">
                         <p> Dont have an account? <a href="./signup.html">Sign up</a></p>
                     </div>
@@ -53,6 +54,7 @@
             </div>
         </div>
     </div>
+    <script src="static/main.js"></script>
 </body>
 <footer class="main-footer">Copyright &copy;Kirega</footer>
 
