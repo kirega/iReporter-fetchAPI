@@ -229,7 +229,7 @@ FORM STYLES
 ***********************
 /
 /* @import 'css/forms.css'; */
-.signup #errors {
+#errors {
     color: #fb7371;
 }
 
