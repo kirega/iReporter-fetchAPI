@@ -65,10 +65,10 @@ function login() {
     }
     fetch(URL + '/login', post)
         .then((res) => {
-            if (res.status == 201) {
+            if (res.status == 200) {
                 setInterval(() => {
                     window.location.replace('dashboard.html');
-                }, 3000);
+                }, 1000);
             }
             return res.json();
         })
