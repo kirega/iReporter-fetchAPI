@@ -73,6 +73,7 @@ function login() {
             return res.json();
         })
         .then((data) => {
+            localStorage.setItem('jwt', data.access_token );
             if (data.required) {
                 var required = Object.keys(data.required)
                     .map((k) => {
