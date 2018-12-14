@@ -11,9 +11,9 @@ function get(url) {
         },
     }
     return fetch(URL + url, payload)
-    .then((res)=> {
-        return res.json()
-    });
+        .then((res) => {
+            return res.json()
+        });
 }
 
 function post(url, data) {
@@ -23,17 +23,29 @@ function post(url, data) {
         mode: "cors",
         headers: {
             "Content-Type": "application/json; charset=utf-8",
-            "Authorization": "Bearer " + jwt
+            "Authorization": "Bearer " + localStorage.getItem('jwt')
         },
         body: data,
     }
-    return fetch(URL + url, payload);
+    return fetch(URL + url, payload)
+        .then((res) => {
+            return res.json()
+        });;
 
 }
-function jsonify(FormData){
+
+function jsonify(FormData) {
     var data_json = {};
-    for (var [key, value] of LoginFormData.entries()) {
+    for (var [key, value] of FormData.entries()) {
         data_json[key] = value;
     }
+    // return JSON.stringify(data_json);
     return data_json;
-}   
+}
+
+function errors(errors) {
+    return Object.keys(errors)
+        .map((k) => {
+            return [k, errors[k][0]]
+        });
+}
