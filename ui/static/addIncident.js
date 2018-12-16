@@ -38,34 +38,41 @@ function addIncident() {
     var incidentData = document.getElementById('incidentForm');
     var incidentFormData = new FormData(incidentData);
     data = jsonify(incidentFormData);
+    var error =  false;
+    Object.keys(data)
+    .map((k)=>{
+        console.log(k);
+        var e = document.getElementById(k);
+        e.innerText = "";
+        if(data[k].trim() == "" ){
+            error = true;
+            e.innerText = "Should be provided";
+            console.log(k,"absent");
+        }
+        
+    })
     data['images'] = [];
     data['videos'] = [];
-
-    data = JSON.stringify(data);
-
-    console.log(data);
-    console.log(data['incidentType']);
-    post('/incidents', data)
-        .then((data) => {
-            console.log(data.message);
-            if (data.required) {
-                var e = errors(data.required);
-                Object.keys(data.required)
-                .map((k) => {
-                    console.log(k);
-                    i = document.getElementById(k);
-                    var err = document.createElement('div');
-                    err.className = 'error';
-                    err.innerText= data.required[k][0]; 
-                    i.appendChild(err);
-                })
-                console.log(errors(data.required));
-
-            }
-            if (data.status == 201) {
-                setInterval(() => {
-                    window.location.replace('incidences.html');
-                }, 3000);
-            }
-        })
+    data = JSON.stringify(data);        
+    if(!error){
+        post('/incidents', data)
+            .then((data) => {
+                if (data.required) {
+                    Object.keys(data.required)
+                    .map((k) => {
+                        var i = document.getElementById(k);
+                        i.innerHTML = data.required[k][0];
+                    })
+                    console.log(errors(data.required));
+                }
+                if (data.status == 201) {
+                    setInterval(() => {
+                        window.location.replace('incidences.html');
+                    }, 3000);
+                }
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+    }
 }
