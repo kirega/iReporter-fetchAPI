@@ -37,7 +37,7 @@
                         <a href="./admin_incidences.html">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a href="./login.html">Log Out</a>
+                        <a href="#" onclick="logout()">Logout</a>
                     </li>
 
                 </ul>
@@ -54,17 +54,18 @@
 
                         <select name="incidentType" required>
                             <option value="">Select</option>
-                            <option value="redflag">Red Flag</option>
+                            <option value="red-flag">Red Flag</option>
                             <option value="intervention">Intervention</option>
                         </select>
                         <div class="errors" id="incidentType"></div>
                     </div>
                     <div class="form-group">
                         <label for="comment">Comment <span class='required'>*</span></label>
-                        <textarea name="comment" placeholder="An explanation in detail of what you are reporting" required></textarea>
+                        <textarea name="comment" placeholder="An explanation in detail of what you are reporting"
+                            required></textarea>
                         <div class="errors" id="comment"></div>
                     </div>
-                    <div class="form-group" >
+                    <div class="form-group">
                         <label for="location">Location</label>
                         <input type="text" name="location" placeholder="[lat,long]" required readonly>
                         <div class="errors" id="location"></div>
@@ -79,7 +80,7 @@
         </div>
     </div>
     <!-- <footer class="main-footer">Copyright &copy;Kirega</footer> -->
-    <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFpepXUlXlUiX53xMG_Lx6BaTh-TWLklU&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFpepXUlXlUiX53xMG_Lx6BaTh-TWLklU&callback=initMap"></script>
     <script src="static/main.js"></script>
     <script src="static/addIncident.js"></script>
 </body>

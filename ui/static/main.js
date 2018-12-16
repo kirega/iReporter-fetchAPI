@@ -49,3 +49,14 @@ function errors(errors) {
             return [k, errors[k][0]]
         });
 }
+
+function logout() {
+    event.preventDefault();
+    data = JSON.stringify({});
+    post('/logout', data)
+        .then((data) => {
+            console.log("Logout Success");
+            localStorage.clear();
+            window.location.replace('login.html');
+        })
+}

@@ -25,8 +25,8 @@ window.onload = function getIncidents() {
                         r.insertCell(-1).innerHTML = "<a href=#> <i class='fas fa-trash'></i></a>";
                         break
                     } else {
-                        r.insertCell(-1).innerHTML = "<a href=#> <i class='fas fa-trash'></i></a>";
                         r.insertCell(-1).innerHTML = "No";
+                        r.insertCell(-1).innerHTML = "<a href=#> <i class='fas fa-trash'></i></a>";
                         break
                     }
                 }
