@@ -49,22 +49,22 @@
                     <h1>Create an Incident</h1>
                 </div>
                 <form action='./incidences.html' enctype="multipart/form-data" class="incident-form" id="incidentForm">
-                    <div class='form-group'>
+                    <div class='form-group' id="incidentType">
                         <label for=incidentType>Type <span class='required'>*</span></label>
 
-                        <select name="incidentType">
+                        <select name="incidentType" >
                             <option value="">Select</option>
                             <option value="redflag">Red Flag</option>
                             <option value="intervention">Intervention</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="comment">
                         <label for="comment">Comment <span class='required'>*</span></label>
-                        <textarea name="comment" placeholder="An explanation in detail of what you are reporting"></textarea>
+                        <textarea name="comment" placeholder="An explanation in detail of what you are reporting" ></textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="location">
                         <label for="location">Location</label>
-                        <input type="text" name="location" placeholder="[lat,long]" id='latLng' readonly>
+                        <input type="text" name="location" placeholder="[lat,long]"  readonly>
                     </div>
                     <div class="map" id="map">
                     </div>
