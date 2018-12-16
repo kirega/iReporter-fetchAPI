@@ -49,3 +49,14 @@ function errors(errors) {
             return [k, errors[k][0]]
         });
 }
+
+function logout() {
+    post('/logout', {})
+        .then((data) => {
+            if (data.status == 200) {
+                console.log("Logout Success");
+                localStorage.clear();
+                window.location.replace('login.html');
+            }
+        })
+}
