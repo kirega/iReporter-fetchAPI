@@ -41,15 +41,12 @@ function addIncident() {
     var error =  false;
     Object.keys(data)
     .map((k)=>{
-        console.log(k);
         var e = document.getElementById(k);
         e.innerText = "";
         if(data[k].trim() == "" ){
             error = true;
             e.innerText = "Should be provided";
-            console.log(k,"absent");
         }
-        
     })
     data['images'] = [];
     data['videos'] = [];

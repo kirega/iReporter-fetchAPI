@@ -51,12 +51,12 @@ function errors(errors) {
 }
 
 function logout() {
-    post('/logout', {})
+    event.preventDefault();
+    data = JSON.stringify({});
+    post('/logout', data)
         .then((data) => {
-            if (data.status == 200) {
-                console.log("Logout Success");
-                localStorage.clear();
-                window.location.replace('login.html');
-            }
+            console.log("Logout Success");
+            localStorage.clear();
+            window.location.replace('login.html');
         })
 }
