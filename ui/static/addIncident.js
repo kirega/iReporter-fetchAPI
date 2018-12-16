@@ -17,18 +17,18 @@ function initMap() {
     map.fitBounds(bounds);
     var markers = [];
     map.addListener('click', (point) => {
-       
-        for( var mk of markers){
+
+        for (var mk of markers) {
             mk.setMap(null);
         }
         var marker = new google.maps.Marker({
             position: point.latLng,
-            map:map
+            map: map
         })
 
         markers.push(marker);
         var p = point.latLng.lat() + "," + point.latLng.lng()
-        document.getElementById('latLng').value = p;
+        document.querySelector('input[name=location]').value = p;
         map.panTo(point.latLng);
     })
 }
@@ -37,16 +37,11 @@ function addIncident() {
     event.preventDefault();
     var incidentData = document.getElementById('incidentForm');
     var incidentFormData = new FormData(incidentData);
-    // var a = Array();
-    // a.push('hellow');
-    // a.push('hellow');
-    // incidentFormData.append('images',a);
-    // incidentFormData.append('videos',a);
     data = jsonify(incidentFormData);
     data['images'] = [];
     data['videos'] = [];
 
-    data  =  JSON.stringify(data);
+    data = JSON.stringify(data);
 
     console.log(data);
     console.log(data['incidentType']);
@@ -54,7 +49,18 @@ function addIncident() {
         .then((data) => {
             console.log(data.message);
             if (data.required) {
+                var e = errors(data.required);
+                Object.keys(data.required)
+                .map((k) => {
+                    console.log(k);
+                    i = document.getElementById(k);
+                    var err = document.createElement('div');
+                    err.className = 'error';
+                    err.innerText= data.required[k][0]; 
+                    i.appendChild(err);
+                })
                 console.log(errors(data.required));
+
             }
             if (data.status == 201) {
                 setInterval(() => {
