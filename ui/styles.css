@@ -229,7 +229,7 @@ FORM STYLES
 ***********************
 /
 /* @import 'css/forms.css'; */
-#errors {
+.errors {
     color: #fb7371;
 }
 
@@ -656,4 +656,8 @@ td a {
     border: none;
     border-radius: 10%;
     float: right;
+}
+#map {
+    margin-top: 30px;
+    height: 400px;
 }

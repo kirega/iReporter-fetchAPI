@@ -22,13 +22,14 @@ window.onload = function getIncidents() {
                 for (var data of values) {
                     if (data.images.length > 0 || data.videos.length > 0) {
                         r.insertCell(-1).innerHTML = "Yes";
+                        r.insertCell(-1).innerHTML = "<a href=#> <i class='fas fa-trash'></i></a>";
                         break
                     } else {
+                        r.insertCell(-1).innerHTML = "<a href=#> <i class='fas fa-trash'></i></a>";
                         r.insertCell(-1).innerHTML = "No";
                         break
                     }
                 }
-                r.insertCell(-1).innerHTML = "<a href=#> <i class='fas fa-trash'></i></a>";
                 table.parentNode.insertBefore(r, table.nextSibling);
             }
         })
