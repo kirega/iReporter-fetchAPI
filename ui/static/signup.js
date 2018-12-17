@@ -7,6 +7,7 @@ function signup() {
     for (var [key, value] of signupFormData.entries()) {
         signup[key] = value;
     }
+    signup.username = signup.username.toLowerCase();
     Object.keys(signup)
     .map((k)=>{
         var e = document.getElementById(k);

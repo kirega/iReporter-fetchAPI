@@ -10,6 +10,7 @@ function login() {
         document.getElementById('errors').innerHTML = "Invalid username/password";
         return
     }
+    login.username = login.username.toLowerCase();
     login = JSON.stringify(login);
   
     post = {

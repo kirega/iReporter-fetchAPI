@@ -1,12 +1,10 @@
 window.onload = function editIncident() {
     var id = localStorage.getItem('incidentId');
-    console.log("welcome", id);
 
     get('/incident/' + id)
         .then((data) => {
-            console.log(data);
-            var fields = ["status",'incidenttype', 'comment','location']
-            // Object.keys(data)
+            console.log(data.message);
+            var fields = ["status",'incidenttype', 'comment','location'];
             fields.map((k) => {
                     console.log(k);
                     var i = document.getElementById(k);
@@ -23,6 +21,8 @@ window.onload = function editIncident() {
             //     // position:data.location,
             //     map: map
             // })
+        }).catch((err)=>{
+            console.log(err);
         })
     
 

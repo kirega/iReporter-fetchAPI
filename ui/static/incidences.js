@@ -16,7 +16,6 @@ window.onload = function getIncidents() {
                         break
                     }
                 }
-                // td><i class="fas fa-trash"></i> <a href="./edit_incident.html"><i class="fas fa-edit"></i></a></i></td>
                 table.parentNode.insertBefore(r, table.nextSibling);
             }
         })
