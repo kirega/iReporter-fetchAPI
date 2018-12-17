@@ -1,18 +1,4 @@
 window.onload = function getIncidents() {
-    function table_gen(fields, values) {
-        var rows = [];
-
-        for (var data of values) {
-            var tr = document.createElement('tr');
-            fields.map((k) => {
-                var td = tr.insertCell(-1);
-                td.innerHTML = data[k];
-                return td
-            })
-            rows.push(tr);
-        }
-        return rows;
-    }
     get('/incidents')
         .then((values) => {
             var table = document.getElementById('incident_record');
@@ -30,6 +16,7 @@ window.onload = function getIncidents() {
                         break
                     }
                 }
+                // td><i class="fas fa-trash"></i> <a href="./edit_incident.html"><i class="fas fa-edit"></i></a></i></td>
                 table.parentNode.insertBefore(r, table.nextSibling);
             }
         })

@@ -35,6 +35,8 @@ function update(){
     data = JSON.stringify(data);
     put('/incident/'+ id +"/status", data)
     .then((data) => {
-        console.log(data);
+        if (data['status'] == 200){
+            window.location.replace('admin_incidences.html');
+        }
     })
 }
