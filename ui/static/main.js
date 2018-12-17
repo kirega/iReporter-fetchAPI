@@ -34,6 +34,23 @@ function post(url, data) {
 
 }
 
+function put(url, data) {
+
+    payload = {
+        method: "PUT",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Authorization": "Bearer " + localStorage.getItem('jwt')
+        },
+        body: data,
+    }
+    return fetch(URL + url, payload)
+        .then((res) => {
+            return res.json()
+        });;
+
+}
 function jsonify(FormData) {
     var data_json = {};
     for (var [key, value] of FormData.entries()) {
@@ -49,7 +66,20 @@ function errors(errors) {
             return [k, errors[k][0]]
         });
 }
+function table_gen(fields, values) {
+    var rows = [];
 
+    for (var data of values) {
+        var tr = document.createElement('tr');
+        fields.map((k) => {
+            var td = tr.insertCell(-1);
+            td.innerHTML = data[k];
+            return td
+        })
+        rows.push(tr);
+    }
+    return rows;
+}
 function logout() {
     event.preventDefault();
     data = JSON.stringify({});

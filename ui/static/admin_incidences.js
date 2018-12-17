@@ -1,4 +1,9 @@
+function edit_incident(m) {
+    localStorage.setItem('incidentId', m);
+    window.location.replace('edit_incident.html');
+}
 window.onload = function getIncidents() {
+ 
     get('/incidents')
         .then((values) => {
             var table = document.getElementById('incident_record');
@@ -8,19 +13,16 @@ window.onload = function getIncidents() {
                 for (var data of values) {
                     if (data.images.length > 0 || data.videos.length > 0) {
                         r.insertCell(-1).innerHTML = "Yes";
-                        r.insertCell(-1).innerHTML = "<a href=#> <i class='fas fa-trash'></i></a>";
                         break
-                    } else {
-                        r.insertCell(-1).innerHTML = "No";
-                        r.insertCell(-1).innerHTML = "<a href=#> <i class='fas fa-trash'></i></a>";
-                        break
-                    }
+                    } 
+                    r.insertCell(-1).innerHTML = "No";  
+                    r.insertCell(-1).innerHTML = "<a href=# onclick='edit_incident("+ data.id+ ");'> <i class='fas fa-edit'></i></a>";
                 }
-                // td><i class="fas fa-trash"></i> <a href="./edit_incident.html"><i class="fas fa-edit"></i></a></i></td>
                 table.parentNode.insertBefore(r, table.nextSibling);
             }
         })
         .catch((err) => {
             console.log(err);
-        })
+        });
+    
 }
