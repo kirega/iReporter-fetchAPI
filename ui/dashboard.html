@@ -44,75 +44,36 @@
         <div class="flex-container db-card-row">
             <div class="db-card">
                 <h3>Pending</h3>
-                <span>4</span>
+                <span id="draft">4</span>
             </div>
             <div class="db-card">
                 <h3>Under Investigation</h3>
-                <span>5</span>
+                <span id="under-investigation">5</span>
             </div>
             <div class="db-card">
                 <h3>Resolved</h3>
-                <span>6</span>
+                <span id="resolved">6</span>
             </div>
             <div class="db-card">
                 <h3>Rejected</h3>
-                <span>10</span>
+                <span id="rejected">10</span>
             </div>
         </div>
         <div class="db-content table bg-thematic-dark">
             <table class="main-table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Description</th>
-                        <th>Location</th>
-                        <th>Status</th>
-                        <th>Media</th>
-                    </tr>
+                <thead id="incident_record">
+                    <th>#</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Media</th>
                 </thead>
-                <tr>
-                    <td>1</td>
-                    <td>Bribing at Kinoo</td>
-                    <td>Red Flag</td>
-                    <td>A police woman was taking money from a matatu at Kinoo stage</td>
-                    <td>Waiyaki Way, Nairobi</td>
-                    <td>draft</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Huge pothole</td>
-                    <td>Intervention</td>
-                    <td>A huge pothole is on Landhies road is causing a lot of traffic</td>
-                    <td>Landhies road, Nairobi</td>
-                    <td>Under Investigation</td>
-                    <td>True</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Nepotism</td>
-                    <td>Red flag</td>
-                    <td>A huge pothole is on Landhies road is causing a lot of traffic</td>
-                    <td>Landhies road, Nairobi</td>
-                    <td>Resolved</td>
-                    <td>True</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Fallen Bridge</td>
-                    <td>Intervention</td>
-                    <td>A huge pothole is on Landhies road is causing a lot of traffic</td>
-                    <td>Landhies road, Nairobi</td>
-                    <td>Rejected</td>
-                    <td>True</td>
-                </tr>
             </table>
         </div>
     </div>
     <script src="static/main.js"></script>
-    <script src="static/addIncident.js"></script>
+    <script src="static/dashboard.js"></script>
     <footer class="main-footer">Copyright &copy;Kirega</footer>
 </body>
 
