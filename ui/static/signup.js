@@ -3,9 +3,27 @@ function signup() {
     var signupForm = document.getElementById("signup");
     var signupFormData = new FormData(signupForm);
     var signup = {};
+    var error = false;
     for (var [key, value] of signupFormData.entries()) {
         signup[key] = value;
     }
+    Object.keys(signup)
+    .map((k)=>{
+        var e = document.getElementById(k);
+        e.className = ""
+        if(signup[k].trim() == "" ){
+            e.className = "err";
+            error = true;
+        }
+    })
+    if(signup.password != signup.confirm_password){
+        document.getElementById('errors').innerHTML = ' Passwords do not match';
+        error = true;
+    }
+    if(error){
+        return;
+    }
+
     signup = JSON.stringify(signup);
 
     post = {

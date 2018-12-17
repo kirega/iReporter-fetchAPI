@@ -6,8 +6,12 @@ function login() {
     for (var [key, value] of LoginFormData.entries()) {
         login[key] = value;
     }
+    if(login['password'].trim().length < 8){
+        document.getElementById('errors').innerHTML = "Invalid username/password";
+        return
+    }
     login = JSON.stringify(login);
-   
+  
     post = {
         method: "POST",
         mode: "cors",

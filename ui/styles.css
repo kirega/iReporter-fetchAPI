@@ -232,6 +232,9 @@ FORM STYLES
 .errors {
     color: #fb7371;
 }
+.err{
+    border: 3px solid #d80603 !important;
+}
 
 .form-wrapper.signup {
     width: 70%;
