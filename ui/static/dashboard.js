@@ -1,4 +1,4 @@
-window.onload = function getIncidents() {
+window.onload = () => {
     get('/incidents')
         .then((values) => {
             var table = document.getElementById('incident_record');
@@ -17,7 +17,17 @@ window.onload = function getIncidents() {
                     }
                 }
                 table.parentNode.insertBefore(r, table.nextSibling);
+                // values.filter(() => {});
             }
+            console.log(values);
+            var drafts = values.filter((i ) => {return i.status == 'draft'}).length; 
+            var under_inv = values.filter((i ) => {return i.status == 'under-investigation'}).length; 
+            var resolved = values.filter((i ) => {return i.status == 'resolved'}).length; 
+            var rejected = values.filter((i ) => {return i.status == 'rejected'}).length; 
+            document.getElementById('draft').innerText = drafts;
+            document.getElementById('under-investigation').innerText = under_inv;
+            document.getElementById('resolved').innerText = resolved;
+            document.getElementById('rejected').innerText = rejected;
         })
         .catch((err) => {
             console.log(err);

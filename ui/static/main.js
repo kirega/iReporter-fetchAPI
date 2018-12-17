@@ -1,4 +1,5 @@
-const URL = "http://localhost:5000/api/v2";
+// const URL = "http://localhost:5000/api/v2";
+const URL = "https://kirega-ireporter.herokuapp.com/api/v2";
 
 function get(url) {
 
