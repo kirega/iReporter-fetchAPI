@@ -31,6 +31,10 @@ Open the `index.html` page on your browser
 
 Once you are here , you can create a user account and login.
 Once authorized you should be able to create and report incidences.
+## Screenshot
+![image](https://user-images.githubusercontent.com/12595401/50177388-f1a61980-0312-11e9-8bab-467e49f45f07.png)
+
+![image](https://user-images.githubusercontent.com/12595401/50177429-0b476100-0313-11e9-9f42-2f915e5bbed9.png)
 
 ## Author
 Kirega Joseph
