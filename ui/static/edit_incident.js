@@ -3,24 +3,28 @@ window.onload = function editIncident() {
 
     get('/incident/' + id)
         .then((data) => {
-            console.log(data.message);
             var fields = ["status",'incidenttype', 'comment','location'];
             fields.map((k) => {
-                    console.log(k);
                     var i = document.getElementById(k);
                     i.value = data[k];
                 })
-            new google.maps.Map(document.getElementById('map'), {
-                center: {
+            var myLatLng = new google.maps.LatLng(Number(data.location.split(',')[0]), Number(data.location.split(',')[0]));
+            console.log(myLatLng);
+            var map = new google.maps.Map(document.getElementById('map'), {
+                    center: {
+                        lat: Number(data.location.split(',')[0]),
+                        lng: Number(data.location.split(',')[1])
+                    },
+                    zoom: 15
+                }); 
+            var marker =  new google.maps.Marker({
+                position:{
                     lat: Number(data.location.split(',')[0]),
                     lng: Number(data.location.split(',')[1])
                 },
-                zoom: 10
-            }); 
-            // new google.maps.Marker({
-            //     // position:data.location,
-            //     map: map
-            // })
+                map: map
+            });
+            marker.setMap(map);
         }).catch((err)=>{
             console.log(err);
         })
