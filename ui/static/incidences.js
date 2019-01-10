@@ -27,7 +27,7 @@ window.onload = function getIncidents() {
                     event.preventDefault();
                     console.log(e.target.getAttribute('data-href'));
                     var id = e.target.getAttribute('data-href');
-                    localStorage.setItem('viewId',id);
+                    localStorage.setItem('incidentId',id);
                     window.location.replace('incident.html');
                 })
             }
