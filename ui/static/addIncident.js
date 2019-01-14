@@ -64,6 +64,7 @@ function addIncident() {
         body: incidentFormData,
     }
     if (!error) {
+        document.getElementById('overlay').style.display = "block";
         fetch(URL + '/incidents', payload)
             .then((res) => {
                 return res.json()
@@ -82,9 +83,13 @@ function addIncident() {
                         window.location.replace('incidences.html');
                     }, 3000);
                 }
+              
             })
             .catch((err) => {
                 console.log(err);
             });
+        setTimeout(() => {
+            document.getElementById('overlay').style.display = "none";
+        }, 1000)    
     }
 }
