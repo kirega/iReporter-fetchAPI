@@ -76,17 +76,22 @@
                         <textarea name="comment" placeholder="An explanation in detail of what you are reporting" id="comment"
                             disabled></textarea>
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="image">Image</label>    
-                        <input id="iamge" type="file" name="media" accept="image/*" multiple disabled>
-                        <br>
+                    <div class="form-group">
+                        <label for="video">Images</label>
+                        <div class="image">
+                            <a href="#">
+                                <img src="" />
+                            </a>
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="video">Video</label>
-                        <input id="video" type="file" name="media" accept="video/*" multiple disabled>
-                        <br>
-                    </div> -->
+                        <div class="video">
+                            <p>No videos uploaded</p>
+                        </div>
 
+                    </div>
                     <div class="form-group">
                         <label for="location">Location</label>
                         <input type="text" id="location" name="location" placeholder="[lat,long]" required readonly>
@@ -98,7 +103,7 @@
         </div>
     </div>
     <script src="static/main.js"></script>
-    <script src="static/edit_incident.js"></script>
+    <script src="static/incident.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFpepXUlXlUiX53xMG_Lx6BaTh-TWLklU&callback=initMap"></script>
 
     <!-- <footer class="main-footer">Copyright &copy;Kirega</footer>     -->

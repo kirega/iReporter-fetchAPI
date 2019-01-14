@@ -37,29 +37,44 @@ function addIncident() {
     event.preventDefault();
     var incidentData = document.getElementById('incidentForm');
     var incidentFormData = new FormData(incidentData);
+    var images = document.getElementById('image').files[0];
+    var videos = document.getElementById('video').files[0];
     data = jsonify(incidentFormData);
-    var error =  false;
-    Object.keys(data)
-    .map((k)=>{
+    var error = false;
+    var fields = ['incidentType', 'comment', 'location']
+    // Object.keys(data)
+    fields.map((k) => {
         var e = document.getElementById(k);
         e.innerText = "";
-        if(data[k].trim() == "" ){
+        if (data[k].trim() == "") {
             error = true;
             e.innerText = "Should be provided";
         }
     })
-    data['images'] = [];
-    data['videos'] = [];
-    data = JSON.stringify(data);        
-    if(!error){
-        post('/incidents', data)
+  
+    incidentFormData.append('image', images);
+    incidentFormData.append('video', videos);
+
+    payload = {
+        method: "POST",
+        mode: "cors",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem('jwt')
+        },
+        body: incidentFormData,
+    }
+    if (!error) {
+        fetch(URL + '/incidents', payload)
+            .then((res) => {
+                return res.json()
+            })
             .then((data) => {
                 if (data.required) {
                     Object.keys(data.required)
-                    .map((k) => {
-                        var i = document.getElementById(k);
-                        i.innerHTML = data.required[k][0];
-                    })
+                        .map((k) => {
+                            var i = document.getElementById(k);
+                            i.innerHTML = data.required[k][0];
+                        })
                     console.log(errors(data.required));
                 }
                 if (data.status == 201) {
@@ -68,8 +83,8 @@ function addIncident() {
                     }, 3000);
                 }
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.log(err);
-            })
+            });
     }
 }
