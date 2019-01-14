@@ -1,6 +1,7 @@
 // const URL = "http://localhost:5000/api/v2";
+// const IMG_URL = "http://localhost:5000";
 const URL = "https://kirega-ireporter.herokuapp.com/api/v2";
-
+const IMG_URL = "https://kirega-ireporter.herokuapp.com";
 function get(url) {
 
     payload = {

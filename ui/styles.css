@@ -232,7 +232,8 @@ FORM STYLES
 .errors {
     color: #fb7371;
 }
-.err{
+
+.err {
     border: 3px solid #d80603 !important;
 }
 
@@ -285,13 +286,15 @@ FORM STYLES
 }
 
 @media(max-width:464px) {
-    .entry-form ::-webkit-input-placeholder{
+    .entry-form ::-webkit-input-placeholder {
         font-size: 0.7rem;
     }
+
     .signup .entry-form input[type=text],
     .signup .entry-form input[type=password] {
         width: 100%;
     }
+
     .form-wrapper.signup {
         width: 100%;
     }
@@ -568,6 +571,10 @@ td .fas {
     color: #377cc7;
 }
 
+.fa-eye:hover {
+    color: #4eea2a;
+}
+
 td a {
     text-decoration: none;
     color: azure;
@@ -660,7 +667,145 @@ td a {
     border-radius: 10%;
     float: right;
 }
+
 #map {
     margin-top: 30px;
     height: 400px;
+}
+
+.loader {
+
+    border: 6px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 6px solid blue;
+    border-right: 6px solid green;
+    border-bottom: 6px solid red;
+    width: 20px;
+    height: 20px;
+    -webkit-animation: spin 0.8s linear infinite;
+    animation: spin 0.8s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -30px;
+    margin-right: -30px;
+
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    display: none;
+}
+
+.image img {
+    width: 250px;
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #577384;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 90%;
+    top: 10%;
+    box-shadow: 3px 3px 30px 0px rgba(0, 0, 0, 0.75)
+}
+
+
+#snackbar.show {
+    visibility: visible;
+
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbar.success {
+    background-color: #4e7935;
+    color: #fff;
+    visibility: visible;
+
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+
+    to {
+        top: 10%;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+
+    to {
+        top: 10%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        top: 10%;
+        opacity: 1;
+    }
+
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        top: 10%;
+        opacity: 1;
+    }
+
+    to {
+        top: 0;
+        opacity: 0;
+    }
 }

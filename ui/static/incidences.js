@@ -1,25 +1,52 @@
 window.onload = function getIncidents() {
     get('/incidents')
         .then((values) => {
+
             var table = document.getElementById('incident_record');
             fields = ['id', 'incidenttype', 'comment', 'location', 'status'];
-            var rows = table_gen(fields, values);
-            for (var r of rows) {
-                for (var data of values) {
-                    if (data.images.length > 0 || data.videos.length > 0) {
-                        r.insertCell(-1).innerHTML = "Yes";
-                        r.insertCell(-1).innerHTML = "<a href=#> <i class='fas fa-trash'></i></a>";
-                        break
-                    } else {
-                        r.insertCell(-1).innerHTML = "No";
-                        r.insertCell(-1).innerHTML = "<a href=#> <i class='fas fa-trash'></i></a>";
-                        break
-                    }
+            for (var data of values) {
+                var tr = document.createElement('tr');
+                fields.map((k) => {
+                    var td = tr.insertCell(-1);
+                    td.innerHTML = data[k];
+                    return td
+                })
+                if (data.images.length > 0 || data.videos.length > 0) {
+                    tr.insertCell(-1).innerHTML = "Yes";
+                    tr.insertCell(-1).innerHTML = "<a href=# onClick=removeIncident(" + data.id + ")> <i class='fas fa-trash'  data-href=" + data.id + " ></i></a> <a href=# class='view' > <i class='fas fa-eye' data-href=" + data.id + " ></i></a>";
+                } else {
+                    tr.insertCell(-1).innerHTML = "No";
+                    tr.insertCell(-1).innerHTML = "<a href=# onClick=removeIncident(" + data.id + ")> <i class='fas fa-trash'  data-href=" + data.id + " ></i></a> <a href=# class='view' > <i class='fas fa-eye'  data-href=" + data.id + " ></i></a>";
                 }
-                table.parentNode.insertBefore(r, table.nextSibling);
+                table.parentNode.insertBefore(tr, table.nextSibling);
             }
         })
-        .catch((err) => {
-            console.log(err);
+        .then(() => {
+            var view = document.getElementsByClassName('view');
+            for (var i of view) {
+                i.addEventListener('click', (e) => {
+                    event.preventDefault();
+                    console.log(e.target.getAttribute('data-href'));
+                    var id = e.target.getAttribute('data-href');
+                    localStorage.setItem('incidentId', id);
+                    window.location.replace('incident.html');
+                })
+            }
         })
+}
+
+function removeIncident(id) {
+    payload = {
+        method: "DELETE",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Authorization": "Bearer " + localStorage.getItem('jwt')
+        }
+    }
+    return fetch(URL + "/incident/" + id, payload)
+        .then((res) => {
+            window.location.replace('incidences.html');
+            return res.json()
+        });;
 }

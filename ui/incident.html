@@ -15,9 +15,6 @@
 </head>
 
 <body class="bg">
-    <div id="overlay">
-        <div class="loader"></div>
-    </div>
     <div class="incident">
         <nav class="navbar">
             <div class="container">
@@ -50,52 +47,66 @@
             <div class='incident-form-wrapper'>
                 <div>
                     <h1>Create an Incident</h1>
+                    <!-- <button class="tag">Draft</button> -->
                 </div>
-                <form action='./incidences.html' enctype="multipart/form-data" class="incident-form" id="incidentForm">
-                    <div class='form-group'>
-                        <label for=incidentType>Type <span class='required'>*</span></label>
+                <form action='./incidences.html' enctype="multipart/form-data" class="incident-form">
 
-                        <select name="incidentType" required>
+                    <div class='form-group admin-status'>
+                        <label for="status">Status <span class='required'>*</span></label>
+
+                        <select name="incident_type" id="status" disabled>
+                            <option value="draft">Draft</option>
+                            <option value="under-investigation">Under Investigation</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                    </div>
+                    <div class='form-group'>
+                        <label for=incident_type>Type <span class='required'>*</span></label>
+                        <!-- <input id="incidenttype" type="text"> -->
+                        <select name="incidenttype" id='incidenttype' disabled>
                             <option value="">Select</option>
                             <option value="red-flag">Red Flag</option>
                             <option value="intervention">Intervention</option>
                         </select>
-                        <div class="errors" id="incidentType"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="image">Image</label>
-                        <input id="image" type="file" accept="image/png, image/jpg, image/jpeg">
-                        <br>
-                    </div>
-                    <div class="form-group">
-                        <label for="video">Video</label>
-                        <input id="video" type="file" accept="video/mp4">
-                        <br>
                     </div>
                     <div class="form-group">
                         <label for="comment">Comment <span class='required'>*</span></label>
-                        <textarea name="comment" placeholder="An explanation in detail of what you are reporting"
-                            required></textarea>
-                        <div class="errors" id="comment"></div>
+                        <!-- <br> -->
+                        <textarea name="comment" placeholder="An explanation in detail of what you are reporting" id="comment"
+                            disabled></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="video">Images</label>
+                        <div class="image">
+                            <a href="#">
+                                <img src="" />
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="video">Video</label>
+                        <div class="video">
+                            <p>No videos uploaded</p>
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="location">Location</label>
-                        <input type="text" name="location" placeholder="[lat,long]" required readonly>
-                        <div class="errors" id="location"></div>
+                        <input type="text" id="location" name="location" placeholder="[lat,long]" required readonly>
+                        <div class="errors"></div>
                     </div>
                     <div class="map" id="map">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="form-button" onclick="addIncident()">Submit</button>
-                    </div>
                 </form>
             </div>
         </div>
     </div>
-    <!-- <footer class="main-footer">Copyright &copy;Kirega</footer> -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFpepXUlXlUiX53xMG_Lx6BaTh-TWLklU&callback=initMap"></script>
     <script src="static/main.js"></script>
-    <script src="static/addIncident.js"></script>
+    <script src="static/incident.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFpepXUlXlUiX53xMG_Lx6BaTh-TWLklU&callback=initMap"></script>
+
+    <!-- <footer class="main-footer">Copyright &copy;Kirega</footer>     -->
 </body>
 
 </html>
