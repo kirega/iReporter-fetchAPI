@@ -716,3 +716,6 @@ td a {
     overflow-x: hidden;
     display: none;
 }
+.image img{
+    width: 250px;   
+}

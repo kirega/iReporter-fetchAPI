@@ -23,10 +23,13 @@ function login() {
     }
     fetch(URL + '/login', post)
         .then((res) => {
+            document.getElementById('overlay').style.display="block";
             if (res.status == 200) {
-                setInterval(() => {
+                setTimeout(() => {
                     window.location.replace('dashboard.html');
                 }, 1000);
+            } else {
+                document.getElementById('overlay').style.display="none";
             }
             return res.json();
         })
