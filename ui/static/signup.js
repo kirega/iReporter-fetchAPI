@@ -4,6 +4,7 @@ function signup() {
     var signupFormData = new FormData(signupForm);
     var signup = {};
     var error = false;
+    var snackbar = document.getElementById('snackbar');
     for (var [key, value] of signupFormData.entries()) {
         signup[key] = value;
     }
@@ -39,10 +40,14 @@ function signup() {
     fetch(URL + '/signup', post)
         .then((res) => {
             if (res.status == 201) {
-
+                snackbar.className="success";
+                snackbar.innerText= "Success!";
+                setTimeout(()=> {
+                    snackbar.className = snackbar.className.replace("success", " ");  
+                },2000)
                 setInterval(() => {
                     window.location.replace('login.html');
-                }, 15);
+                },2500);
             }
             return res.json();
         })
