@@ -3,10 +3,16 @@ function login() {
     var LoginForm = document.getElementById("login");
     var LoginFormData = new FormData(LoginForm);
     var login = {};
+    var snackbar = document.getElementById('snackbar');
     for (var [key, value] of LoginFormData.entries()) {
         login[key] = value;
     }
     if(login['password'].trim().length < 8){
+        snackbar.className="show";
+        snackbar.innerText= "Invalid username/password";
+        setTimeout(()=>{
+            snackbar.className = snackbar.className.replace("show", " ");
+        }, 3000)
         document.getElementById('errors').innerHTML = "Invalid username/password";
         return
     }
@@ -22,12 +28,20 @@ function login() {
         body: login
     }
     fetch(URL + '/login', post)
-        .then((res) => {
-            document.getElementById('overlay').style.display="block";
+        .then((res) => { 
             if (res.status == 200) {
+                snackbar.className="success";
+                snackbar.innerText= "Success!";
+                setTimeout(()=> {
+                    snackbar.className = snackbar.className.replace("success", " ");  
+                },2000)
+                setTimeout(()=>{
+                    document.getElementById('overlay').style.display="block";
+                },2100)
                 setTimeout(() => {
                     window.location.replace('dashboard.html');
-                }, 1000);
+                },3000);
+               
             } else {
                 document.getElementById('overlay').style.display="none";
             }
