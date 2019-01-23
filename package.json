@@ -1,0 +1,32 @@
+{
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "name": "ireporter-ui",
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) # iReporter ## Project Overview Corruption is a huge bane to Africa’s development. African countries must develop novel and localised solutions that will curb this menace, hence the birth of iReporter. iReporter enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public. Users can also report on things that needs government intervention",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "puppeteer": "^1.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirega/iReporter-fetchAPI.git"
+  },
+  "keywords": [
+    "ireporter",
+    "fetch",
+    "jest",
+    "puppeteer",
+    "kirega"
+  ],
+  "author": "kirega",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kirega/iReporter-fetchAPI/issues"
+  },
+  "homepage": "https://github.com/kirega/iReporter-fetchAPI#readme"
+}
