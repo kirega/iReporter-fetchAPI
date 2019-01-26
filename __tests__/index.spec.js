@@ -1,4 +1,3 @@
-var html = require('fs').readFileSync('ui/login.html').toString();
 const puppeteer = require('puppeteer');
 let browser, page;
 
