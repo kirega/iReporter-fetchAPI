@@ -4,8 +4,7 @@ node_js:
 - '8'
 branches:
   only:
-  - master
-  - ch-js-testing-jest-#163416295
+  - develop
 cache:
   directories:
   - node_modules
@@ -15,3 +14,4 @@ install:
 - npm install
 script:
 - npm test
+- npm run coveralls
