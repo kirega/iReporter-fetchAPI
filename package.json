@@ -12,7 +12,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "puppeteer": "^1.11.0"
+    "puppeteer": "^1.11.0",
+    "faker": "^4.1.0"
   },
   "repository": {
     "type": "git",
