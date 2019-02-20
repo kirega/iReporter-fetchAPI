@@ -3,6 +3,7 @@ window.onload = () => {
     document.getElementById('overlay').style.display = "block";
     get('/incidents')
         .then((values) => {
+            console.table(values);
             var table = document.getElementById('incident_record');
             fields = ['id', 'incidenttype', 'comment', 'location', 'status'];
             var rows = table_gen(fields, values);
