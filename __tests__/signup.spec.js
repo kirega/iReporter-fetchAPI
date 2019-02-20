@@ -24,7 +24,6 @@ beforeEach(async () => {
         "username": faker.internet.userName(),
         "password": "12345678"
     };
-    console.log(user)
 });
 afterEach(async () => {
     await browser.close();
