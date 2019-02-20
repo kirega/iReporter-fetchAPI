@@ -1,4 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.com/kirega/iReporter-fetchAPI.svg?branch=develop)](https://travis-ci.com/kirega/iReporter-fetchAPI)
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
+
 # iReporter
 ## Project Overview
 Corruption is a huge bane to Africa’s development. African countries must develop novel and
